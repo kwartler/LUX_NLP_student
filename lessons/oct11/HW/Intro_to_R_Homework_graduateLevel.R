@@ -78,6 +78,8 @@ ____(data= _____) + ________(aes(x=____), binwidth=___)
 #15. What is the class of the color vector?
 
 
+######### OMIT for Oct 12, did not cover in class ######
+
 #16. Read in the WesternCellTowers.csv cell towers as westTowers
 westTowers <- read.csv(____)
 
