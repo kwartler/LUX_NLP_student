@@ -59,7 +59,7 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 |-----|---------------------------|-------|
 |HW1  |Basics of R Coding: Oct 11 |Oct 12 |
 |HW2  |Load & Clean Docs: Oct 12  |Oct 13 |
-|HW3  |Sentiment  & Unsupervised:Oct 14/15  |Oct 18 |
+|HW3  |Sentiment  & Unsupervised:Oct 14/15  |Oct 19 |
 |HW4  |Document Classification    |Oct 21 |
 |Case |NA                         |Nov 5  |
 |Paper|NA                         |Nov 5  |
