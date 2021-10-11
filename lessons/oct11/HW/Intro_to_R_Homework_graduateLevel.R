@@ -4,7 +4,7 @@
 #' Assignment: EDA, Functions, visuals & mapping
 #' Instructions: Complete the scaffolded code for Canvas.
  
-## Set the working directory (HINT: it should be your wk2_homework folder)
+## Set the working directory (HINT: it should be your HW folder)
 
 
 ## Load the libraries, maps ggplot2, ggthemes
