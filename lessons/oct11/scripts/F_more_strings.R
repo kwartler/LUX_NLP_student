@@ -7,7 +7,7 @@
 #' 
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct11/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct11/data")
 
 # library
 library(stringi)
@@ -29,7 +29,7 @@ txtClean <- gsub("<.*?>",'', txt )#find with wildcard, replace w nothing
 txtClean
 
 # stringr version
-str_replace_all(txt, "<.*?>",  '')
+str_replace_all(txt, "<.*?>",  '') #GG: wrapper for gsub() from -stringr-
 
 # Let's combine our three separate objects
 allText <- c(txt, txt2, txt3)
