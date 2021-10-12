@@ -69,3 +69,5 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 
 ## Recorded Lectures (will be deleted Dec 1)
 * [Oct 11](https://harvard.zoom.us/rec/share/KF0ygFcaaijV5_IYHB45y29-ILbcHFZJa7ZiWt8cPYXTA_xv8E9aUPmXyU6rVylQ.RLeK0Qo-d-X0UrCm)
+* [Oct 12](https://harvard.zoom.us/rec/share/fyisI__Y6S25EdG07br9KR-S2lS_-XYDdQlaYoChgdhlCX_co8h_S5S9KZfTRmOr.8k64uWjfg6SaDDKX)
+
