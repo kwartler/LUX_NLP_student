@@ -66,3 +66,6 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 
 ## Prerequisite Work
 *  Read chapter 1 of the book [Text Mining in Practice with R](https://www.amazon.com/Text-Mining-Practice-Ted-Kwartler/dp/1119282012) book.
+
+## Recorded Lectures (will be deleted Dec 1)
+* [Oct 11](https://harvard.zoom.us/rec/share/KF0ygFcaaijV5_IYHB45y29-ILbcHFZJa7ZiWt8cPYXTA_xv8E9aUPmXyU6rVylQ.RLeK0Qo-d-X0UrCm)
