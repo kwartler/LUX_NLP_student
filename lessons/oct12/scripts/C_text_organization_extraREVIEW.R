@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct12/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct12/data")
 
 # Libs
 library(tm)
@@ -103,7 +103,7 @@ topTermsA[idx, ]
 class(txtDtm)
 class(txtTdm)
 
-head(slam::col_sums(txtDtm))
+head(slam::col_sums(txtDtm)) #GG: use slam when you have really large data
 head(slam::row_sums(txtTdm))
 
 slamWFM <- data.frame(term = names(slam::col_sums(txtDtm)),

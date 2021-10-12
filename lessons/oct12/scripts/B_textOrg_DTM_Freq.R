@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct12/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct12/data")
 
 # Libs
 library(tm)
@@ -45,7 +45,7 @@ text <- read.csv('coffee.csv', header=TRUE)
 #View(text)
 
 # As of tm version 0.7-3 tabular was deprecated
-names(text)[1] <- 'doc_id' #first 2 columns must be 'doc_id' & 'text'
+names(text)[1] <- 'doc_id' #first 2 columns must be 'doc_id' & 'text' #GG: need to rename first column as 'doc_id' otherwise package won't like it
 
 # Make a volatile corpus
 txtCorpus <- VCorpus(DataframeSource(text))
@@ -101,6 +101,6 @@ head(topTermsB)
 
 # Which term is the most frequent?
 idx <- which.max(topTermsA$freq)
-topTermsA[idx, ]
+topTermsA[idx, ] #GG: if you put 'word' inside "stops <- c(stopwords('english'), 'lol', 'smh')", you'll find "like" is the next most common word
 
 # End
