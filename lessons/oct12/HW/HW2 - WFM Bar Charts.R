@@ -20,10 +20,13 @@ unicorns <- search_tweets(q = 'unicorns', n = 1000)
 
 
 # Save original data to turn in with HW.
-saveRDS(unicorns, 'unicorns.rds')
+saveRDS(unicorns, 'unicornsA.rds') # Data --A
+saveRDS(unicorns, 'unicornsB.rds') # Data --B
 
 
 # Perform all text preprocessing steps with custom functions & stopwords
+# Use both content() to examine 1 document content that is "cleaned"
+# Use meta() to examine 1 document's meta information
 
 # For Data --A 
 # Create a single word frequency matrix
@@ -38,7 +41,5 @@ saveRDS(unicorns, 'unicorns.rds')
 # Obtain the top 35 terms from both
 # Create a stacked bar chart with appropriate title
 # Create a proportional bar chart with appropriate title
-
-# End
 
 # End
