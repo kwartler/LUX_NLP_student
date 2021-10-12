@@ -76,7 +76,7 @@ messyTxt <- c('123...this is text to be examined',
 messyTxt
 
 
-splitDocs <- str_split(messyTxt, pattern = "[...]")
+splitDocs <- str_split(messyTxt, pattern = "[...]") #GG: use str_split looking for a pattern
 splitDocs
 
 # Suppose you now want to get the last element of this list?

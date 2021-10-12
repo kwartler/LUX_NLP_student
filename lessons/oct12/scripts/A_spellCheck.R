@@ -10,7 +10,7 @@
 #library(qdap) #pg 45 in book has another option but crashes rstudio free cloud instances
 library(spelling)
 library(hunspell)
-library(mgsub)
+library(mgsub) #GG: multiple global substitution
 library(pbapply)
 
 # List available dictionaries; not great
@@ -30,7 +30,7 @@ ignoreWords <- c('luve')
 #spell_check_files(path, ignore = ignoreWords, lang = "en_US") #check files on disk for formats: markdown, but also latex, html, xml, pdf, and plain text
 spell_check_text(allTxt, lang = "en_US")
 spell_check_text(allTxt, 
-                 ignore = ignoreWords, 
+                 ignore = ignoreWords, #GG: we imposed that "luve" is ok, and to be ignored
                  lang = "en_US")
 
 
