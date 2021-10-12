@@ -52,7 +52,8 @@ tweetTDMm <- as.matrix(tweetTDM)
 
 # Frequency Data Frame
 tweetSums <- rowSums(tweetTDMm)
-tweetFreq <- data.frame(word=names(tweetSums),frequency=tweetSums)
+tweetFreq <- data.frame(word=names(tweetSums),
+                        frequency=tweetSums)
 
 # Review a section
 tweetFreq[50:55,]

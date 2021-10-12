@@ -3,7 +3,7 @@
 #' Author: Ted Kwartler
 #' email: edwardkwartler@fas.harvard.edu
 #' License: GPL>=3
-#' Date: Dec 30 2020
+#' Date: Oct 11, 2021
 #'
 
 # Set the working directory
@@ -59,7 +59,7 @@ meta(txtCorpus[[4]]) #double [[...]]
 t(meta(txtCorpus[4])) #single [...]
 
 content(txtCorpus[4]) #single [...]
-content(txtCorpus[[4]]) #double [...]
+content(txtCorpus[[4]]) #double [[...]]
 
 # Need to plain text cleaned copy? Saves time on large corpora
 df <- data.frame(text = unlist(sapply(txtCorpus, `[`, "content")),

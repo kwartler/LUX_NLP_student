@@ -24,12 +24,14 @@ exampleTxtC <- 'I luve coffee'
 allTxt      <- c(exampleTxtA, exampleTxtB, exampleTxtC)
 
 # Declare any words you want to ignore, ie twitters "RT" or "SMH"
-ignoreWords = c('luve')
+ignoreWords <- c('luve')
 
 # Identify mispelled words
 #spell_check_files(path, ignore = ignoreWords, lang = "en_US") #check files on disk for formats: markdown, but also latex, html, xml, pdf, and plain text
 spell_check_text(allTxt, lang = "en_US")
-spell_check_text(allTxt, ignore = ignoreWords, lang = "en_US")
+spell_check_text(allTxt, 
+                 ignore = ignoreWords, 
+                 lang = "en_US")
 
 
 # No good correction functions, book pg 46
@@ -63,7 +65,9 @@ for( i in 1:length(allTxt)){
 correctedTxt
 
 # Or use mgsub
-correctedTxt2 <- pblapply(allTxt, mgsub, correctionLexicon$wrong, correctionLexicon$right)
+correctedTxt2 <- pblapply(allTxt, mgsub,
+                          correctionLexicon$wrong,
+                          correctionLexicon$right)
 correctedTxt2 <- do.call(rbind, correctedTxt2)
 correctedTxt2
 # End
