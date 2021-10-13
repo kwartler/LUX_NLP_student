@@ -100,4 +100,6 @@ comparison.cloud(drinkTDMm,
                  colors=brewer.pal(ncol(drinkTDMm),"Dark2"),
                  scale=c(3,0.1))
 
+drinkTDMm[grep('avid', rownames(drinkTDMm)),]
+
 # End

@@ -42,8 +42,9 @@ stops <- c(stopwords('SMART'), 'dell', 'laptop', 'issue')
 
 # Data; limited to 1000 posts for speed
 text <- read_fst('2020-12-18_dellForum_k1_k5540.fst', from = 1, to = 1000)$post
+# text <- read_fst('2020-12-18_dellForum_k1_k5540.fst')$post #TDM is 31807 X 26064
 
-# Quick remove html
+# Quick remove u00A0: a macro for the no-break space character
 text <- gsub("\u00A0", "", text)
 
 # Make a volatile corpus

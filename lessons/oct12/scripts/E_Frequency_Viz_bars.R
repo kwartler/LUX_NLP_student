@@ -14,6 +14,7 @@ library(tm)
 library(qdap)
 library(ggplot2)
 library(ggthemes)
+library(tidyr)
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
