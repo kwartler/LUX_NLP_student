@@ -95,6 +95,6 @@ commonality.cloud(drinkTDMm,
                   random.order=FALSE,
                   colors='blue',
                   scale=c(3.5,0.25))
-
+drinkTDMm[grep('like', rownames(drinkTDMm)),]
 
 # End

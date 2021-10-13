@@ -60,29 +60,21 @@ df[4,]
 
 # Make a Document Term Matrix or Term Document Matrix depending on analysis
 txtDtm  <- DocumentTermMatrix(txtCorpus)
-txtTdm  <- TermDocumentMatrix(txtCorpus)
 txtDtmM <- as.matrix(txtDtm)
-txtTdmM <- as.matrix(txtTdm)
 
 # Examine
 txtDtmM[610:611,491:493]
-txtTdmM[491:493,610:611]
 
 # Get the most frequent terms
 topTermsA <- colSums(txtDtmM)
-topTermsB <- rowSums(txtTdmM)
+topTermsSLAM <- slam::col_sums(txtDtmM) #alternative mem efficient
 
 # Add the terms
-topTermsA <- data.frame(terms = colnames(txtDtmM), freq = topTermsA)
-topTermsB <- data.frame(terms = rownames(txtTdmM), freq = topTermsB)
-
-# Remove row attributes
-rownames(topTermsA) <- NULL
-rownames(topTermsB) <- NULL
-
+topTermsA <- data.frame(terms     = colnames(txtDtmM), 
+                        freq      = topTermsA, 
+                        row.names = NULL)
 # Review
 head(topTermsA)
-head(topTermsB)
 
 # Order
 exampleReOrder <- topTermsA[order(topTermsA$freq, decreasing = T),]

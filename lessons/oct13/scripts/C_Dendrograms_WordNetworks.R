@@ -40,7 +40,7 @@ cleanCorpus<-function(corpus, customStopwords){
 }
 
 # Create custom stop words
-stops <- c(stopwords(source = 'smart'), 'amp', 'britishairways', 'british',
+stops <- c(stopwords('smart'), 'amp', 'britishairways', 'british',
            'flight', 'flights', 'airways')
 
 # Read in Data, clean & organize

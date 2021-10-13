@@ -25,7 +25,7 @@ options(stringsAsFactors = FALSE)
 Sys.setlocale('LC_ALL','C')
 
 # Create custom stop words
-stops <- c(stopwords(source = "smart"), 'amp', 'britishairways', 
+stops <- c(stopwords("smart"), 'amp', 'britishairways', 
            'british', 'flight', 'flights', 'airways', 
            'ryanair', 'airline', 'flying')
 

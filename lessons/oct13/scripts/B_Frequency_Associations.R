@@ -39,7 +39,8 @@ cleanCorpus<-function(corpus, customStopwords){
 }
 
 # Create custom stop words
-stops <- c(stopwords(source = "smart"), 'amp', 'britishairways', 'british',
+#quanteda::stopwords(source = "smart")
+stops <- c(stopwords("smart"), 'amp', 'britishairways', 'british',
                      'flight', 'flights', 'airways')
 
 # Read in Data, clean & organize
@@ -51,13 +52,11 @@ tweetTDMm <- as.matrix(tweetTDM)
 
 # Frequency Data Frame
 tweetSums <- rowSums(tweetTDMm)
-tweetFreq <- data.frame(word=names(tweetSums),frequency=tweetSums)
+tweetFreq <- data.frame(word      = names(tweetSums),
+                        frequency = tweetSums,
+                        row.names = NULL)
 
 # Review a section
-tweetFreq[50:55,]
-
-# Remove the row attributes meta family
-rownames(tweetFreq) <- NULL
 tweetFreq[50:55,]
 
 # Simple barplot; values greater than 15
@@ -90,8 +89,9 @@ associations <- findAssocs(tweetTDM, 'brewdog', 0.30)
 associations
 
 # Organize the word associations; pearson correlations
-assocDF <- data.frame(terms=names(associations[[1]]),
-                       value=unlist(associations), row.names = NULL)
+assocDF <- data.frame(terms = names(associations[[1]]),
+                      value = unlist(associations), 
+                      row.names = NULL)
 assocDF$terms <- factor(assocDF$terms, levels=assocDF$terms)
 assocDF
 
