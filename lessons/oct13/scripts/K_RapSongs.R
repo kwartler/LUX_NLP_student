@@ -7,7 +7,7 @@
 #'
 
 # Set wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Options
 options(stringsAsFactors = F, scipen = 999)
@@ -19,14 +19,14 @@ library(ggthemes)
 library(pbapply)
 
 # Multiple files as a list
-tmp <- list.files(path = paste0(getwd(),'/z_rap_songs'), 
+tmp <- list.files(path = paste0(getwd(),'/z_rap_songs'), #GG: looking for anything in pasted path that ends in .csv
                   pattern = '*.csv', 
                   full.names = T)
 tmpNames <- list.files(path = paste0(getwd(),'/z_rap_songs'), 
                        pattern = '*.csv', 
                        full.names = F)
 allSongs <- pblapply(tmp, read.csv)
-names(allSongs) <- gsub('.csv','', tmpNames)
+names(allSongs) <- gsub('.csv','', tmpNames) #GG: dropping the .csv from name
 
 # Basic Exploration
 allSongs$B.I.T.C.H...Explicit..by.Megan.Thee.Stallion
@@ -85,7 +85,7 @@ for(i in 1:length(allSongs)){
 
 # Get the timeline of a song
 songTimeline  <- do.call(rbind, wordCountList)
-head(songTimeline[,-3],2)
+head(songTimeline[,-3],2) #GG: words per second as song unfolds
 
 # Make an example visual using the last `y` from the loop to show it
 head(y)

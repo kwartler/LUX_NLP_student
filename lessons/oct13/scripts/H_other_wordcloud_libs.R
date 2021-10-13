@@ -14,6 +14,7 @@ library(tm)
 library(fst)
 library(echarts4r)
 library(ggwordcloud)
+library(dplyr)
 
 # Options & Functions
 options(stringsAsFactors = FALSE)

@@ -7,7 +7,7 @@
 #'
 
 # Set wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Options
 options(stringsAsFactors = F, scipen = 999)

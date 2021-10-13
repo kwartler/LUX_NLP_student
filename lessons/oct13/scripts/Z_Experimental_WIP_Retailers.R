@@ -13,7 +13,7 @@ library(tm)
 library(dplyr)
 
 # Set wd
-setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Options & Functions
 options(stringsAsFactors = FALSE, scipen = 999)

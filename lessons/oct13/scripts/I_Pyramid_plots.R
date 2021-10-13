@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Libs
 library(tm)
@@ -18,7 +18,7 @@ library(ggthemes)
 library(ggalt)
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R') #GG: cleanMatrix collapses in one column, doing trytolower() and other stuff in the background
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
@@ -68,3 +68,5 @@ pyramid.plot(lx         = top35$britishAir, #left
              unit       = 'wordFreq') 
 
 # End
+
+#GG: here frequencies are not rescaled because tweets are being used and there is not too much variation in tweet length given that there is a cap and people tend to use all characters
