@@ -32,7 +32,7 @@ cleanCorpus<-function(corpus, customStopwords){
   corpus <- tm_map(corpus, removeNumbers)
   corpus <- tm_map(corpus, stripWhitespace)
   return(corpus)
-}
+} #GG: we use this function so that we don't need to apply what it does text by text, but we can do it on the whole corpus
 
 # Create custom stop words
 stops <- c(stopwords('english'), 'lol', 'smh')
@@ -41,7 +41,7 @@ stops <- c(stopwords('english'), 'lol', 'smh')
 text <- read.csv('coffee.csv', header=TRUE)
 
 # As of tm version 0.7-3 tabular was deprecated
-names(text)[1] <- 'doc_id' 
+names(text)[1] <- 'doc_id' #GG: again, need to rename first column
 
 # Make a volatile corpus
 txtCorpus <- VCorpus(DataframeSource(text))
@@ -67,7 +67,7 @@ txtDtmM[610:611,491:493]
 
 # Get the most frequent terms
 topTermsA <- colSums(txtDtmM)
-topTermsSLAM <- slam::col_sums(txtDtmM) #alternative mem efficient
+topTermsSLAM <- slam::col_sums(txtDtmM) #alternative mem efficient #GG: library_name_space::command from that library without loading it
 
 # Add the terms
 topTermsA <- data.frame(terms     = colnames(txtDtmM), 
@@ -77,7 +77,7 @@ topTermsA <- data.frame(terms     = colnames(txtDtmM),
 head(topTermsA)
 
 # Order
-exampleReOrder <- topTermsA[order(topTermsA$freq, decreasing = T),]
+exampleReOrder <- topTermsA[order(topTermsA$freq, decreasing = T),] #GG: reordering rows in a decreasing fashion
 head(exampleReOrder)
 
 # End

@@ -6,8 +6,10 @@
 #' Date: Oct 11, 2021
 #'
 
+#GG: what you show in a word cloud could as well be shown in a bar chart
+
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Libs
 library(tm)
@@ -90,3 +92,6 @@ wordcloud(wineDF$word,
           scale        = c(2,1))
 
 # End
+
+#GG: marvin gaye is a common two-word combination
+#GG be careful in the pre-processing concerning substitutions with numbers (see slides)

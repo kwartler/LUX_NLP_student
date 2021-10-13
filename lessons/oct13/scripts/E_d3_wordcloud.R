@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Libs
 library(tm)

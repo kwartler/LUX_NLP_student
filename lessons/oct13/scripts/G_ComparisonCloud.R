@@ -6,7 +6,7 @@
 #' Date: Oct 11, 2021
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Options
 options(scipen = 999)
@@ -81,7 +81,7 @@ allDrinks <- VCorpus((VectorSource(allDrinks)))
 
 # Make TDM with a different control parameter
 # Tokenization `control=list(tokenize=bigramTokens)`
-# You can have more than 1 ie `control=list(tokenize=bigramTokens, weighting = weightTfIdf)`
+# You can have more than 1 ie `control=list(tokenize=bigramTokens, weighting = weightTfIdf)` / #GG: with TfIdf you have to worry less about stopwords because they get deflated
 ctrl      <- list(weighting = weightTfIdf)
 drinkTDM  <- TermDocumentMatrix(allDrinks, control = ctrl)
 drinkTDMm <- as.matrix(drinkTDM)

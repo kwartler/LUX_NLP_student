@@ -60,16 +60,16 @@ tweetFreq <- data.frame(word      = names(tweetSums),
 tweetFreq[50:55,]
 
 # Simple barplot; values greater than 15
-topWords      <- subset(tweetFreq, tweetFreq$frequency >= 15) 
+topWords      <- subset(tweetFreq, tweetFreq$frequency >= 15) #GG: BaseR-style for subsetting freq>= 15
 topWords      <- topWords[order(topWords$frequency, decreasing=F),]
 
 # Reorder within GGPLOT
-ggplot(topWords, aes(x=reorder(word, frequency), y=frequency)) + 
+ggplot(topWords, aes(x=reorder(word, frequency), y=frequency)) + #GG: reordering bars by frequency
   geom_bar(stat="identity", fill='darkred') + 
   coord_flip()+ theme_gdocs() +
   geom_text(aes(label=frequency), colour="white",hjust=1.25, size=3.0)
 
-# REORDER by releveling the factor
+# REORDER by releveling the factor #GG: or manually reorder before ggplot
 topWords$word <- factor(topWords$word, 
                         levels=unique(as.character(topWords$word))) 
 
@@ -85,7 +85,7 @@ ggplot(topWords, aes(x=word, y=frequency)) +
 ############ Back to PPT
 
 # Inspect word associations
-associations <- findAssocs(tweetTDM, 'brewdog', 0.30)
+associations <- findAssocs(tweetTDM, 'brewdog', 0.30) #GG: -findAssocs- pearson correlation, return terms that are correlated w/ brewdog 30% of the time
 associations
 
 # Organize the word associations; pearson correlations
@@ -95,7 +95,7 @@ assocDF <- data.frame(terms = names(associations[[1]]),
 assocDF$terms <- factor(assocDF$terms, levels=assocDF$terms)
 assocDF
 
-# Make a dot plot
+# Make a dot plot #GG: Cleveland dotplot
 ggplot(assocDF, aes(y=terms)) +
   geom_point(aes(x=value), data=assocDF, col='#c00c00') +
   theme_gdocs() + 

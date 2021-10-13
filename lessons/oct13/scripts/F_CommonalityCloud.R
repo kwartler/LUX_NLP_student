@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Libs
 library(tm)
@@ -80,7 +80,7 @@ allDrinks <- VCorpus((VectorSource(allDrinks)))
 allDrinks
 
 # Make TDM
-drinkTDM  <- TermDocumentMatrix(allDrinks)
+drinkTDM  <- TermDocumentMatrix(allDrinks) #GG: could add control parameter to do biagram instead
 drinkTDMm <- as.matrix(drinkTDM)
 
 # Make sure order is correct!

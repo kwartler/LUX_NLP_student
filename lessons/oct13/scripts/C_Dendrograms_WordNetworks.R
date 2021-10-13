@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct13/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct13/data")
 
 # Libs
 library(tm)
@@ -50,17 +50,17 @@ txtCorpus <- cleanCorpus(txtCorpus, stops)
 tweetTDM  <- TermDocumentMatrix(txtCorpus)
 
 # Reduce TDM
-reducedTDM <- removeSparseTerms(tweetTDM, sparse=0.985) #shoot for ~50 terms; 1.5% of cells in row have a value  
+reducedTDM <- removeSparseTerms(tweetTDM, sparse=0.985) #shoot for ~50 terms; 1.5% of cells in row have a value / #GG: retain rows where 1.5% or more cells have non-zerovalue  
 reducedTDM
 
 # Organize the smaller TDM
-reducedTDM <- as.data.frame(as.matrix(reducedTDM))
+reducedTDM <- as.data.frame(as.matrix(reducedTDM)) #GG: Recast matrix as dataframe
 
-# Basic Hierarchical Clustering
+# Basic Hierarchical Clustering / #GG: This would be like descriptive statistics
 hc <- hclust(dist(reducedTDM))
 plot(hc,yaxt='n')
 
-ggdendrogram(hc, rotate=FALSE) 
+ggdendrogram(hc, rotate=FALSE) #GG: check out dendextend for further graphical tweaks
 
 ############ Back to PPT
 
@@ -75,7 +75,7 @@ word_associate(assocText,
                network.plot = T,
                cloud.colors = c('black','darkred'))
 
-# MORE QDAP!
+# MORE QDAP! #GG: size related to frequency but now don't know order of association
 word_associate(assocText, 
                match.string = 'brewdog', 
                stopwords = networkStops,
