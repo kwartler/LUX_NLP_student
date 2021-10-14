@@ -7,7 +7,7 @@
 #'
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct14/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct14/data")
 
 # Libs
 library(tm)
@@ -18,16 +18,17 @@ library(qdap)
 library(echarts4r)
 library(tidyr)
 library(corpus)
+library(textdata) #GG: troubles with downloading the AFINN dataset and package 
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Create custom stop words
 stops <- c(stopwords('english'))
 
 # Clean and Organize the old way instead of cleanMatrix
 txt <- read.csv('news.csv')
-table(txt$doc_id) #565 news articles mentioning President Trump
+table(txt$doc_id) #565 news articles mentioning President Trump #GG: newsapi.org, scrapes news sources but truncates the articles (first couple of thousand articles)
 
 
 # Ignoring authorship/news political leanings, overall let's examine the emotional words used in these articles
@@ -62,6 +63,7 @@ aggregate(count~sentiment,bingSent, sum) #correct way to sum them
 
 # Compare original with qdap::Polarity
 pol <- polarity(read.csv('news.csv')$text)
+pol
 # avg. polarity  -0.014 vs about even pos/neg terms
 
 # Get afinn lexicon

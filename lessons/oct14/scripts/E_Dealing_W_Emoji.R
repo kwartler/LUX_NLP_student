@@ -7,7 +7,7 @@
 #'
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct14/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct14/data")
 
 library(tm) # displays the emojis correctly?  Odd.
 library(rtweet) # Get the emoji lexicon or load one manually

@@ -6,7 +6,7 @@
 #' Date: Oct 12, 2021
 #'
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct14/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct14/data")
 
 # Libs
 library(tm)
@@ -24,7 +24,7 @@ allTxt <- data.frame(artist = c('pharrell_williams','weeknd'),
 polarity(allTxt$song)
 
 # What about by group?
-polarity(allTxt$song, grouping.var = allTxt$artist)
+polarity(allTxt$song, grouping.var = allTxt$artist) #GG: polarity across groups when you know them and they are meaningful
 
 
 # Examine the polarity obj more

@@ -6,8 +6,9 @@
 #' Date: Oct 12, 2021
 #'
 
+#GG: looking at polarity in Paul Krugman's tweets over time
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct14/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct14/data")
 
 # Libs
 library(tm)
@@ -17,7 +18,7 @@ library(lubridate)
 library(dplyr)
 
 # Custom Functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Data
 #econ <- rtweet::get_timeline('PaulKrugman', n = 1000)

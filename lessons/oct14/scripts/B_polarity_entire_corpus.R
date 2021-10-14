@@ -7,7 +7,7 @@
 #'
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct14/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct14/data")
 
 # Libs
 library(tm)
@@ -20,11 +20,11 @@ text <- readLines('pharrell_williams_happy.txt')
 polarity(text)
 
 # Does it Matter if we process it?
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 txt <- VCorpus(VectorSource(text))
 txt <- cleanCorpus(txt, stopwords("SMART"))
-polarity(content(txt[[1]]))
+polarity(content(txt[[1]])) #GG: after removing stopwords polarity increases
 
 # Examine the polarity obj more
 pol <- polarity(content(txt[[1]]))
