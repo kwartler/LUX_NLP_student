@@ -5,23 +5,31 @@
 #' Instructions: Complete the scaffolded code for Canvas.
  
 ## Set the working directory (HINT: it should be your HW folder)
-
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct11/HW")
 
 ## Load the libraries, maps ggplot2, ggthemes
-
+library(maps)
+library(ggplot2)
+library(ggthemes)
 
 ## Exercises
 # 1. Read in diamonds.csv data and call it 'df'
-
+df <- read.csv("diamonds.csv") 
 
 # 2. Examine the first 10 rows of data
-
+df[1:10,]
+head(df, n = 10L)
 
 # 3. What is the first value for the 'color' column when looking at head()? 
-# Answer: 
+df$color[1]
+# Answer: "E"
 
 # 4. Create a new data frame called 'diamonds' by sorting the 'df' object by price and decreasing is FALSE
-_____ <- __[___(__$____, decreasing=_),]
+diamonds <- df[sort(df$price, decreasing=F]
+
+diamonds <- sort(df$price, decreasing=F)
+
+topPerformers <- sort(charTally[,1], decreasing = T)[1:n]
 
 # 5. Examine the last 6 rows of the 'diamonds' data frame.  What is the most expensive diamond in the set?
 
