@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct15/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct15/data")
 
 # Libs
 library(textcat)
@@ -51,7 +51,7 @@ detect_language_mixed(unknownLanguageOne$text)
 
 # It can check mixed documents too; and webpages
 # line by line
-detect_language(
+detect_language( #GG: cool parses a web page, but you gotta tell it to ignore plain text (HTML and stuff)
   url('http://www.un.org/ar/universal-declaration-human-rights/'), plain_text = FALSE)
 
 # returns top 3 identified

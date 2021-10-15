@@ -15,9 +15,9 @@ library(reshape2)
 library(dplyr)
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct15/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct15/data")
 
-# Inputs
+# Inputs #GG: lemmatization takes long. try code on a testing parameter
 datPth          <- 'tweets_jairbolsonaro.csv'
 testing         <- F
 nonBasicStops   <- c('segura', 'seguro')
@@ -27,10 +27,10 @@ options(stringsAsFactors = FALSE)
 Sys.setlocale('LC_ALL','C')
 
 # Bring in the cleaning function
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Get a language model to the server
-?udpipe_download_model
+?udpipe_download_model 
 udModel <- udpipe_download_model(language  = "portuguese-gsd", 
                                  model_dir = getwd())
 
@@ -38,14 +38,14 @@ udModel <- udpipe_download_model(language  = "portuguese-gsd",
 udModel <- udpipe_load_model('portuguese-gsd-ud-2.5-191206.udpipe')
 # Bring in data & organize
 textData <- read.csv(datPth)
-text     <- data.frame(doc_id = 1:nrow(textData),
+text     <- data.frame(doc_id = 1:nrow(textData), #GG: can parse a vector or a dataframe; in the latter case gotta have "doc_id" has first colname
                        text   = textData$text)
 
 # Convert
 #Encoding(text$text)
 #iconvlist()
-#stringi::stri_enc_detect(text$text)
-text$text <- iconv(text$text, "latin1", "ISO-8859-1", sub="")
+#stringi::stri_enc_detect(text$text) #GG: makes a guess on which language special characters come from.
+text$text <- iconv(text$text, "latin1", "ISO-8859-1", sub="") #GG: enforces characters conversions based on portuguese encoding
 
 # Apply the cleaning function, then get the plain text version
 textCorp <- VCorpus(DataframeSource(text))
@@ -53,8 +53,8 @@ textCorp <- cleanCorpus(textCorp, c(stopwords('portuguese'),nonBasicStops))
 text     <- pblapply(textCorp, content)
 
 
-#text[[1]] #Uh oh!
-text     <- pblapply(textCorp, bracketX)
+#text[[1]] #Uh oh! #GG: there are still some characters that were not recognized. so we brute force strip them out
+text     <- pblapply(textCorp, bracketX) #GG: bracketX removes everything between brackets
 #text[[1]] #better
 
 # Re-organize to keep track of doc_id
@@ -64,8 +64,8 @@ text <- data.frame(doc_id = 1:nrow(textData),
 # Reduce for testing
 nDocs            <- ifelse(testing ==T, 2, nrow(text))
 
-syntatcicParsing <- udpipe(text[1:nDocs,], object = udModel)
-saveRDS(syntatcicParsing, 'syntatcicParsing_allTweets.rds')
+syntatcicParsing <- udpipe(text[1:nDocs,], object = udModel) #GG: udpipe 0.8.6 creates a problem. v0.8.5 works. You can roll back via "remotes::install_version("udpipe", "0.8.5")"
+saveRDS(syntatcicParsing, 'syntatcicParsing_allTweets.rds') #GG: saving a copy of the outputs
 head(syntatcicParsing)
 tail(syntatcicParsing)
 

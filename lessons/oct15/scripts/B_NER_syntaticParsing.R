@@ -7,27 +7,28 @@
 #'
 
 # WD
-setwd("~/Desktop/LUX_NLP_student/lessons/oct15/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct15/data")
 
 # Inputs
-fileFolder <- '~/Desktop/LUX_NLP_student/lessons/oct15/data/clinton'
+fileFolder <- '~/Documents/GitHub/LUX_NLP_student/lessons/oct15/data/clinton'
 testing    <- F
 
 # Libs
 library(pbapply)
 library(stringr)
 library(tm)
-library(openNLP)
+library(qdap)
+library(openNLP) #GG: has Named Entity Recognition (NER) but not often updated (although not orphan) and poor documentation
 #install.packages("openNLPmodels.en", dependencies=TRUE, repos = "http://datacube.wu.ac.at/")
 #if it times out download the tar.gz from the site and install locally by changing the path
 #install.packages("/address/to/openNLPmodels.en_1.5-1.tar.gz", repos = NULL, type="source")
 library(openNLPmodels.en)
-
-# Custom Functions needed bc of new class obj
+##GG[VFI]: the reason you need to do Named Entity Recognition (NER) on the whole sentences instead of just bag of words is that, in order to do such recognition, you need the CONTEXT. And in bag of words, they are just individual words (or tokens like bigram) but out of context. The NER algorithm needs the context to understand what is what.
+# Custom Functions needed bc of new class obj #GG: i.e. x <- as.String(x) 
 txtClean <- function(x) {
   x <- x[-1] 
   x <- paste(x,collapse = " ")
-  x <- str_replace_all(x, "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+", "")
+  x <- str_replace_all(x, "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+", "") #GG: Removes email addresses
   x <- str_replace_all(x, "Doc No.", "")
   x <- str_replace_all(x, "UNCLASSIFIED U.S. Department of State Case No.", "")
   x <- removeNumbers(x)
@@ -36,15 +37,15 @@ txtClean <- function(x) {
 }
 
 # Get data & Organize
-tmp           <- list.files(path = fileFolder, pattern = '.txt', full.names = T)
-emails        <- pblapply(tmp, readLines)
+tmp           <- list.files(path = fileFolder, pattern = '.txt', full.names = T) #GG: pulls all names of .txt files in the folder
+emails        <- pblapply(tmp, readLines) #GG: warnings are due to incomplete last lines; they are fine
 names(emails) <- gsub('.txt', '', list.files(path = fileFolder, pattern = '.txt'))
 
 # Examine 1
 emails$C05758905
 
 # Examine cleaning in action
-txtClean(emails[[1]])[[1]]
+txtClean(emails[[1]])[[1]] #GG: that's the thing we get, a single example
 
 if(testing == T){
   emails <- emails[1:10]
@@ -54,7 +55,7 @@ if(testing == T){
 allEmails <- pblapply(emails,txtClean)
 allEmails[[2]][[1]][1]
 
-# POS Tagging
+# POS Tagging #GG: Now we start with the Named Entity Recognition (NER)
 persons            <- Maxent_Entity_Annotator(kind='person')
 locations          <- Maxent_Entity_Annotator(kind='location')
 organizations      <- Maxent_Entity_Annotator(kind='organization')
@@ -66,7 +67,7 @@ posTagAnnotator    <- Maxent_POS_Tag_Annotator(language='en')
 annotationsData <- list()
 for (i in 1:length(allEmails)){
   print(paste('starting annotations on doc', i))
-  annotations <- annotate(allEmails[[i]], list(sentTokenAnnotator, 
+  annotations <- annotate(allEmails[[i]], list(sentTokenAnnotator, #GG: you need to detach ggplot2 because they share the function -annotate-
                                                wordTokenAnnotator, 
                                                posTagAnnotator, 
                                                persons, 
@@ -116,7 +117,7 @@ for (i in 1:length(allEmails)){
 # Examine a portion
 head(allData[[1]][10:20,])
 
-# Now to subset for each document
+# Now to subset for each document #GG: kinda creepy but super cool
 people       <- pblapply(allData, subset, grepl("*person", features))
 location     <- pblapply(allData, subset, grepl("*location", features))
 organization <- pblapply(allData, subset, grepl("*organization", features))
