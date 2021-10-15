@@ -1,0 +1,2 @@
+#library(rtweet)
+limited firehose (not the whole population of tweets), limit to when you can go back in time with free Twitter API. See streamingtwitter. or do it every day and scrape the day's, won't still be all of twitter (cronjob). need to set up a server for that (Edward said these things). also got to deduplicate using unique hash identifiers
