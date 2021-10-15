@@ -6,27 +6,89 @@
 #' Date: Oct 10, 2021
 #'
 
-# libraries; you will need to load more for the assignment
+# Preliminaries
+
+## Setting the working directory
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct12/HW")
+
+## Libraries
 library(rtweet)
+library(tm)
+library(dplyr)
 
-# Obtain Data -- A
-# You may use the twitter API as shown below, with a search term you are interested in.
-# Or you may use your own data source from research. 
-# So HW can be graded you will have to save and share the original data source.
-# Please don't use the unicorns data, it is an example.
-unicorns <- search_tweets(q = 'unicorns', n = 1000)
+## Obtaing Data -- A - search term: "nobel"
+nobel       <- search_tweets(q = 'nobel', n = 1000, lang = "en")
+## Obtaing Data -- B - search term: "econtwitter" (this is a popular hastag academic economists use on twitter)
+econtwitter <- search_tweets(q = 'econtwitter', n = 1000, lang = "en")
 
-# Obtain Data -- B
-
-
-# Save original data to turn in with HW.
-saveRDS(unicorns, 'unicornsA.rds') # Data --A
-saveRDS(unicorns, 'unicornsB.rds') # Data --B
+## Saving original data to turn in with HW.
+saveRDS(nobel, 'nobel.rds') # Data --A
+saveRDS(econtwitter, 'econtwitter.rds') # Data --B
 
 
-# Perform all text preprocessing steps with custom functions & stopwords
+## Performing all text preprocessing steps with custom functions & stopwords
+
+### Options & Functions
+options(stringsAsFactors = FALSE)
+Sys.setlocale('LC_ALL','C')
+
+tryTolower <- function(x){
+  y = NA
+  try_error = tryCatch(tolower(x), error = function(e) e)
+  if (!inherits(try_error, 'error'))
+    y = tolower(x)
+  return(y)
+}
+
+cleanCorpus<-function(corpus, customStopwords){
+  corpus <- tm_map(corpus, content_transformer(qdapRegex::rm_url))
+  corpus <- tm_map(corpus, content_transformer(replace_contraction)) 
+  corpus <- tm_map(corpus, removeNumbers)
+  corpus <- tm_map(corpus, removePunctuation)
+  corpus <- tm_map(corpus, stripWhitespace)
+  corpus <- tm_map(corpus, content_transformer(tryTolower))
+  corpus <- tm_map(corpus, removeWords, customStopwords)
+  return(corpus)
+}
+
+### Creating custom stop words
+stops <- c(stopwords('SMART'), 'amp')
+
+
 # Use both content() to examine 1 document content that is "cleaned"
 # Use meta() to examine 1 document's meta information
+econtwitter$doc_id  <- seq.int(nrow(econtwitter))
+econtwitter         <- econtwitter[,c(ncol(econtwitter), 1:(ncol(econtwitter)-1))]
+
+nobel$doc_id        <- seq.int(nrow(nobel))
+nobel               <- nobel[,c(ncol(nobel), 1:(ncol(nobel)-1))]
+
+## Making volatile corpuses
+econtwitterCorpus   <- VCorpus(DataframeSource(econtwitter))
+nobelCorpus         <- VCorpus(DataframeSource(nobel))
+
+## Preprocessing the corpuses
+econtwitterCorpus   <- cleanCorpus(econtwitterCorpus, stops)
+nobelCorpus         <- cleanCorpus(nobelCorpus, stops)
+
+## Checking Meta Data for tweet n.10 in each of the two corpuses
+
+### nobel
+nobelCorpus[[100]]
+meta(nobelCorpus[[100]])
+t(meta(nobelCorpus[100]))
+
+content(nobelCorpus[100])
+content(nobelCorpus[[100]])
+
+### econtwitter
+econtwitterCorpus[[100]]
+meta(econtwitterCorpus[[100]])
+t(meta(econtwitterCorpus[100]))
+
+content(econtwitterCorpus[100])
+content(econtwitterCorpus[[100]])
+
 
 # For Data --A 
 # Create a single word frequency matrix
