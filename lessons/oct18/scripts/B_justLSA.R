@@ -7,14 +7,14 @@
 #' Another good option
 
 # Set the working directory
-setwd("~/Desktop/LUX_NLP_student/lessons/oct18/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct15/data")
 
 # Libs
 library(tm)
 library(lsa)
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE, scipen = 999)
@@ -24,14 +24,14 @@ Sys.setlocale('LC_ALL','C')
 stops <- c(stopwords('SMART'), 'car', 'electronic')
 
 # Bring in some data
-carCorp <- VCorpus(DirSource("~/Desktop/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/rec.autos"))
-electronicCorp <- VCorpus(DirSource("~/Desktop/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/sci.electronics"))
+carCorp <- VCorpus(DirSource("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/rec.autos"))
+electronicCorp <- VCorpus(DirSource("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/sci.electronics"))
 
 # Clean each one
 carCorp        <- cleanCorpus(carCorp, stops)
 electronicCorp <- cleanCorpus(electronicCorp, stops)
 
-# Combine
+# Combine #GG: to save RAM
 allPosts <-  c(carCorp,electronicCorp)
 rm(carCorp)
 rm(electronicCorp)
@@ -45,11 +45,11 @@ allTDM <- TermDocumentMatrix(allPosts,
                              control = list(weighting = weightTfIdf))
 allTDM
 
-# Get 20 latent topics
+# Get 20 latent topics #GG: computationally intensive
 ##### Takes awhile, may crash small computers, so saved a copy
 #lsaTDM <- lsa(allTDM, 20)
 #saveRDS(lsaTDM, 'lsaTDM_tfidf.rds')
-lsaTDM <- readRDS('~/Desktop/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/lsaTDM_tfidf.rds')
+lsaTDM <- readRDS('~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data/AutoAndElectronics/lsaTDM_tfidf.rds')
 head(lsaTDM$dk)
 
 # End

@@ -6,7 +6,7 @@
 #' Date: Oct 17, 2021
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct18/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data")
 
 # Libs
 library(tm)
@@ -16,7 +16,7 @@ library(fst)
 library(wordcloud) #used to make word clouds out of clusters
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
@@ -34,16 +34,16 @@ txtMat <- cleanMatrix(pth = 'basicResumes.csv',
                       wgt = 'weightTfIdf') #weightTf or weightTfIdf
 
 txtMat    <- scale(txtMat) #subtract mean  & divide by stDev
-txtKMeans <- kmeans(txtMat, 3)
+txtKMeans <- kmeans(txtMat, 3) #GG: imposing K=3
 txtKMeans$size
-barplot(txtKMeans$size, main = 'k-means')
+barplot(txtKMeans$size, main = 'k-means') #GG: not so good
 
 # https://en.wikipedia.org/wiki/Silhouette_(clustering)
 # consistency of clusters, -1 to 1, high values indicate the correct number of clusters and separation
 dissimilarityMat <- dist(txtMat)
 silPlot          <- silhouette(txtKMeans$cluster, dissimilarityMat)
 plot(silPlot, col=1:max(txtKMeans$cluster), border=NA)
-
+#GG: either not enough data or number of clusters wrong. Negative values indicate a cluster is nested within another
 
 #calculate indices of closest document to each centroid
 idx <- vector()

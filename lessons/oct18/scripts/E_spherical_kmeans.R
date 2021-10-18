@@ -5,7 +5,7 @@
 #' License: GPL>=3
 #' Date: Oct 17, 2021
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct18/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data")
 
 # Libs
 library(skmeans)
@@ -16,7 +16,7 @@ library(wordcloud)
 
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)

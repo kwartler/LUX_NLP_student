@@ -10,7 +10,7 @@
 #' 15k_resumes.csv
 
 # Wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct18/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data")
 
 # Libs
 library(kmed)
@@ -20,7 +20,7 @@ library(cluster)
 library(wordcloud) #used to make word clouds out of clusters
 
 # Bring in our supporting functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)

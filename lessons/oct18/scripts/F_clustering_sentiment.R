@@ -6,7 +6,7 @@
 #' Date: Oct 17, 2021
 
 # wd
-setwd("~/Desktop/LUX_NLP_student/lessons/oct18/data")
+setwd("~/Documents/GitHub/LUX_NLP_student/lessons/oct18/data")
 
 # options
 options(scipen = 999, stringsAsFactors = F)
@@ -26,7 +26,7 @@ library(ggplot2)
 library(ggthemes)
 
 # Custom Functions
-source('~/Desktop/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('~/Documents/GitHub/LUX_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Examine Raw Text
 rawTxt <- read.csv('exampleNews.csv')
@@ -50,7 +50,7 @@ allInfo    <- cleanCorpus(allInfo, stops)
 allInfoDTM <-  DocumentTermMatrix(allInfo)
 allInfoDTM <- as.matrix(allInfoDTM)
 allInfoDTM <- subset(allInfoDTM, rowSums(allInfoDTM) > 0)
-dim(allInfoDTM)
+dim(allInfoDTM) #GG: 500 articles; 6370 different terms
 
 #### Perform a Spherical K Means Clustering
 set.seed(1234)
@@ -131,7 +131,7 @@ docCluster <- data.frame(document = names(txtSKMeans$cluster),
 combinedData <- left_join(nrcSent, docCluster)
 
 # Intersect the Clusters and Sentiment; subset to the cluster of interest
-oneTopic <- subset(combinedData, combinedData$clusterAssignment == 1)
+oneTopic <- subset(combinedData, combinedData$clusterAssignment == 1) #GG: cluster 1
 
 # Adjust for quick analysis
 table(oneTopic $sentiment, oneTopic $source)
