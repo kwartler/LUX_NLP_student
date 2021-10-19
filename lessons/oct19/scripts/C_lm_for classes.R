@@ -1,7 +1,7 @@
 #' Title: Linear modeling for classification
 #' Purpose: Why doesn't LM work for binary classification?
 #' Author: Ted Kwartler
-#' email: edward.kwartler@hult.edu
+#' email: edwardkwartler@fas.harvard.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
@@ -11,7 +11,7 @@ library(ggplot2)
 library(dplyr)
 
 # wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("~/Desktop/LUX_NLP_student/lessons/oct19/data")
 
 # Data
 data('diamonds')

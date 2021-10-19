@@ -1,7 +1,7 @@
 #' Title: Fully March Madness Revised
 #' Purpose: apply a logistic regression to basketball data
 #' Author: Ted Kwartler
-#' email: edward.kwartler@hult.edu
+#' email: edwardkwartler@fas.harvard.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
@@ -13,7 +13,7 @@ library(pROC)
 library(ggplot2)
 
 # wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("/Users/edwardkwartler/Desktop/LUX_NLP_student/lessons/oct19/data")
 
 # Data
 bball <- read.csv('ncaa.csv')

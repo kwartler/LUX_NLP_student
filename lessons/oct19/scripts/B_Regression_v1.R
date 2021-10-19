@@ -9,7 +9,7 @@
 # Libs
 
 # Setwd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("~/Desktop/LUX_NLP_student/lessons/oct19/data")
 
 # Data
 houses <-read.csv('BostonHousing.csv')

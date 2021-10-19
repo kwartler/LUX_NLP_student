@@ -1,14 +1,14 @@
 #' Title: Elastic net example
 #' Purpose: Build an elastic net for classification 
 #' Author: Ted Kwartler
-#' email: edward.kwartler@hult.edu
+#' email: edwardkwartler@fas.harvard.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
 
 
 # Wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("/Users/edwardkwartler/Desktop/LUX_NLP_student/lessons/oct19/data")
 
 # Libs
 library(text2vec)
