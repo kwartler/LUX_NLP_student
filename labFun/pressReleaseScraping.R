@@ -1,6 +1,6 @@
 # TK
 # Press Release Scraping
-# Oct 14
+# Oct 19, 2021
 
 # Lib
 library(rvest)
@@ -57,7 +57,7 @@ for(i in 1:(totalPgs)-1){
                          prHeadline  = str_squish(prHeadline),
                          headlineTxt = str_squish(txt), 
                          namedEntity = ner)
-  write.csv(parsedPR,paste0(savePth,'tmp/' ,i,'_',paste0(Sys.time(), '.csv')), row.names = F)
+  write.csv(parsedPR,paste0(savePth,'tmp/' ,i,'_',paste0(make.names(Sys.time()), '.csv')), row.names = F)
 }
 
 # Append the entire txt
@@ -93,11 +93,13 @@ allInfo <- do.call(rbind, allInfo)
 
 if(fileFormat=='csv'){
   print('saving as csv')
-  nam <- paste0('allPRs for term ', searchQ, ' captured ',Sys.time(),'.csv')
+  nam <- paste0('allPRs for term ', searchQ, ' captured ',
+                make.names(Sys.time()),'.csv')
   write.csv(allInfo, paste0(savePth, nam), row.names = F) 
 } else {
   print('saving as fst')
-  nam <- paste0('allPRs for term ', searchQ, ' captured ',Sys.time(),'.fst')
+  nam <- paste0('allPRs for term ', searchQ, ' captured ',
+                make.names(Sys.time()),'.fst')
   write_fst(allInfo, paste0(savePth, nam)) 
 }
 

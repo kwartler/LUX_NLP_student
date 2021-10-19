@@ -145,6 +145,11 @@ plot(textROC,col="blue",main="BLUE = Text, RED = No Text, GREEN=All",adj=0)
 plot(noTextROC, add=TRUE,col="red", lty=2)
 plot(allROC,add=TRUE,col="darkgreen", lty=3)
 
+# Examine train set accuracy
+Accuracy(predict(allFit,cbind(diabetesDTM,
+                              as.matrix(trainDiabetesTxt[,1:132])), type = 'class'),
+                 trainDiabetesTxt$readmitted)
+
 ### Apply to new patients requires the construction of the new patient DTM exaclty as the training set
 testIT   <- itoken(testDiabetesTxt$diagnosisText, 
                    tokenizer = word_tokenizer)

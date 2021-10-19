@@ -64,6 +64,10 @@ text <- data.frame(doc_id = 1:nrow(textData),
 # Reduce for testing
 nDocs            <- ifelse(testing ==T, 2, nrow(text))
 
+# UD Pipe require UTF8 so this may be needed to enforce it.
+text$text <- enc2utf8(text$text)
+
+# Apply the model to the text
 syntatcicParsing <- udpipe(text[1:nDocs,], object = udModel)
 saveRDS(syntatcicParsing, 'syntatcicParsing_allTweets.rds')
 head(syntatcicParsing)
