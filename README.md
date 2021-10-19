@@ -73,4 +73,5 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 * [Oct 13](https://harvard.zoom.us/rec/share/qvb2dJA6ggOJkqeW5atdEceY5YU51pCXGGYHPjdmlbpe_GZDMKU6dMvd6sWVDaJT.Sm6hnyd2vx3PQuVC)
 * [Oct 14](https://harvard.zoom.us/rec/share/VUpmEOlKQMHRczx7iHSgAf1XI9YYKFx3cbXoGoIXeIOUJQhVDqI2aE1f7kM3kaUi.f06uZRU0CKlMqg3v)
 * [Oct 15](https://harvard.zoom.us/rec/share/7tu-8Gr9ZyT0R_6HJ2bAgCq8uuXNcbt0a2TssKEa21wPr_dKqTyrQLcHLg6tv1ke.2g-wfrkJZRbTsSkT)
+* [Oct 18](https://harvard.zoom.us/rec/share/Y9lyYXtHwmwe7z0hyrR51IlrPWGagtUUPxKFxWMX-qVBBgg6DwH4YnVzAOQKHBbk.DWryUUOXkSaSrPyT)
 
