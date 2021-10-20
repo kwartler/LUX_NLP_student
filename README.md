@@ -77,3 +77,6 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 * [Oct 19](https://harvard.zoom.us/rec/share/4eVw7WHra710i80LIKH_HBzx00_ytdaSa_pvYJ2InDQTjNDyi0LUIvlLNxAk46qx.EJC_dHAyeGfb6DwZ)
 * [Oct 20](https://harvard.zoom.us/rec/share/f2E4FkMnjyyAkpke_1S_UgMSM2_kSHOSUWOlDS17ukST46E3fOgcn8VZpkotO24V.mM8iua1Gk-bMO6Ed)
 
+
+## Case Examples for inspiration
+[https://www.wsbets.dev/GME.html](Wall Street Bets)
