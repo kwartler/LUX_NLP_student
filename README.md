@@ -79,4 +79,4 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 
 
 ## Case Examples for inspiration
-[https://www.wsbets.dev/GME.html](Wall Street Bets)
+[Wall Street Bets](https://www.wsbets.dev/GME.html)
