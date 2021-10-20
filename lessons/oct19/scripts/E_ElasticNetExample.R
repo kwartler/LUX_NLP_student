@@ -8,7 +8,7 @@
 
 
 # Wd
-setwd("/Users/edwardkwartler/Desktop/LUX_NLP_student/lessons/oct19/data")
+setwd("~/Desktop/LUX_NLP_student/lessons/oct19/data")
 
 # Libs
 library(text2vec)
