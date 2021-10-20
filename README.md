@@ -59,8 +59,8 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 |-----|---------------------------|-------|
 |HW1  |Basics of R Coding: Oct 11 |Oct 12 |
 |HW2  |Load & Clean Docs: Oct 12  |Oct 14 |
-|HW3  |Sentiment  & Unsupervised:Oct 14/15  |Oct 19 |
-|HW4  |Document Classification    |Oct 21 |
+|HW3  |Sentiment  & Unsupervised:Oct 14/15  |Oct 20 |
+|HW4  |Document Classification    |Oct 23 |
 |Case |NA                         |Nov 5  |
 |Paper|NA                         |Nov 5  |
 
