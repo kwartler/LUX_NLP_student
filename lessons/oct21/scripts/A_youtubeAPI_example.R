@@ -19,7 +19,7 @@ setwd("~/Desktop/LUX_NLP_student/lessons/oct21/data")
 
 # Youtube URL
 #https://www.youtube.com/watch?v=Q-wRhzWaCac
-youtubeCaption <- 'https://www.youtube.com/api/timedtext?v=5F-o2_AC-Wo&asr_langs=de%2Cen%2Ces%2Cfr%2Cid%2Cit%2Cja%2Cko%2Cnl%2Cpt%2Cru%2Ctr%2Cvi&caps=asr&exp=xftt%2Cxctw&xoaf=5&hl=en&ip=0.0.0.0&ipbits=0&expire=1634793780&sparams=ip%2Cipbits%2Cexpire%2Cv%2Casr_langs%2Ccaps%2Cexp%2Cxoaf&signature=5B535CCD6B876F24B842CFCFEA2BD8E36706F4D0.DCB99D2860B4BAD8EC877BCBA87E3CF9347E2F91&key=yt8&kind=asr&lang=en&fmt=json3&xorb=2&xobt=3&xovt=3'
+youtubeCaption <- 'https://www.youtube.com/api/timedtext?v=5F-o2_AC-Wo&asr_langs=de%2Cen%2Ces%2Cfr%2Cid%2Cit%2Cja%2Cko%2Cnl%2Cpt%2Cru%2Ctr%2Cvi&caps=asr&exp=xftt%2Cxctw&xoaf=5&hl=en&ip=0.0.0.0&ipbits=0&expire=1634845852&sparams=ip%2Cipbits%2Cexpire%2Cv%2Casr_langs%2Ccaps%2Cexp%2Cxoaf&signature=0CC45CE748F42330F037FB99E63A9F3FCD6E227C.D85D8EDE42E6581A8A9AE4449E49B8487BC139F6&key=yt8&kind=asr&lang=en&fmt=json3&xorb=2&xobt=3&xovt=3'
 
 # Go get the data
 dat <- fromJSON(youtubeCaption)
