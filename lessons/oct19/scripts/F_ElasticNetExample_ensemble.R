@@ -15,6 +15,7 @@ library(caret)
 library(tm)
 library(glmnet)
 library(pROC)
+library(MLmetrics)
 
 
 # Custom cleaning function
