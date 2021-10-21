@@ -42,11 +42,11 @@ nlpResult$documentSentiment$score
 nlpResult$classifyText
 
 #### Google Translation API
-text <- "Text Mining in Practice with R. It's the math of talking, you're two favorite things! "
+text <- "Text Mining in Practice with R. It's the math of talking, your two favorite things! "
 
 ## translate British into Danish
-#translatedTxt <- gl_translate(text, target = "da")
-#saveRDS(translatedTxt, 'translatedTxt.rds')
+#translatedTxt <- gl_translate(text, target = "fr")
+#saveRDS(translatedTxt, 'translatedTxt_FR.rds')
 translatedTxt <- readRDS('translatedTxt.rds')
 translatedTxt$translatedText
 
