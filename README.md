@@ -76,6 +76,7 @@ If this causes hardship, don't worry!  You can use a server instance instead.
 * [Oct 18](https://harvard.zoom.us/rec/share/Y9lyYXtHwmwe7z0hyrR51IlrPWGagtUUPxKFxWMX-qVBBgg6DwH4YnVzAOQKHBbk.DWryUUOXkSaSrPyT)
 * [Oct 19](https://harvard.zoom.us/rec/share/4eVw7WHra710i80LIKH_HBzx00_ytdaSa_pvYJ2InDQTjNDyi0LUIvlLNxAk46qx.EJC_dHAyeGfb6DwZ)
 * [Oct 20](https://harvard.zoom.us/rec/share/f2E4FkMnjyyAkpke_1S_UgMSM2_kSHOSUWOlDS17ukST46E3fOgcn8VZpkotO24V.mM8iua1Gk-bMO6Ed)
+* [Oct 21](https://harvard.zoom.us/rec/share/pWAvjNOblo7wloZzU-Ddem68dvDI2AlgpJALXayzZg2b3Ei35Hw44yacVnCGqE4I.zR9I50sz_uPEjjz9)
 
 
 ## Case Examples for inspiration
